@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>DB15-WebSecurityPlik</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <!--  ustawienie uwierzytelniania (logowania) -->
+  <login-config>
+  	<auth-method>BASIC</auth-method>
+  </login-config>
+  
+  <!-- ustawienie autoryzacji (czyli kontrola dostępu) -->
+  <security-constraint>
+    <web-resource-collection>
+  		<web-resource-name>katalog admina</web-resource-name>
+  		<url-pattern>/admin/*</url-pattern>
+	</web-resource-collection>
+	
+	<auth-constraint>
+	<!--  w jakiej roli (inaczej w grupie) ma być użytkownik aby mieć dostęp -->
+	<role-name>uprawniony</role-name>	
+	</auth-constraint>
+  </security-constraint>
+</web-app>
